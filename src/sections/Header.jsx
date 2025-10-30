@@ -35,8 +35,8 @@ export const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg'
-          : 'bg-transparent'
+          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-2xl border-b border-slate-200 dark:border-slate-800'
+          : 'bg-white/80 dark:bg-transparent backdrop-blur-lg'
       }`}
     >
       <Container>
@@ -56,7 +56,7 @@ export const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-slate-700 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors font-medium"
+                className="text-slate-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-semibold text-base"
               >
                 {item.name}
               </a>
@@ -67,10 +67,10 @@ export const Header = () => {
           <div className="flex items-center gap-4">
             {/* Theme Toggle */}
             <motion.button
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              className="p-3 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 text-white shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 transition-all"
             >
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </motion.button>
@@ -100,12 +100,14 @@ export const Header = () => {
             </div>
 
             {/* Mobile Menu Toggle */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+              className="md:hidden p-3 rounded-xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-slate-800 dark:to-slate-900 text-white shadow-lg"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -115,7 +117,7 @@ export const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden py-4 border-t border-slate-200 dark:border-slate-700"
+            className="md:hidden py-6 border-t border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl"
           >
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
@@ -123,7 +125,7 @@ export const Header = () => {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-slate-700 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors font-medium py-2"
+                  className="text-slate-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-bold py-3 px-4 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   {item.name}
                 </a>
