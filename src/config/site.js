@@ -1,8 +1,23 @@
+/**
+ * 🎨 SITE CONFIGURATION
+ * 
+ * This is the MAIN file for customizing your template!
+ * Change all text, pricing, features, testimonials here.
+ * 
+ * 📝 CUSTOMIZATION TIP:
+ * - Search & replace "LaunchPad" with your product name
+ * - Update all text to match your brand
+ * - Change pricing to your actual prices
+ * - Add real testimonials
+ */
+
 export const siteConfig = {
-  name: "LaunchPad",
+  // 🏷️ BRAND INFORMATION
+  name: "LaunchPad", // 👈 Change this to your product name
   description: "Transform your ideas into reality with the most powerful SaaS platform",
-  url: "https://yoursite.com",
+  url: "https://yoursite.com", // 👈 Change to your domain
   
+  // 🦸 HERO SECTION (First thing visitors see!)
   hero: {
     badge: "🚀 New Feature Launch",
     title: "Transform Your Business with",
@@ -12,10 +27,13 @@ export const siteConfig = {
     secondaryCTA: "View Demo",
   },
 
+  // ✨ FEATURES SECTION (Bento Grid Layout)
+  // 💡 TIP: First and 4th features are displayed larger
+  // Available icons: Check lucide.dev for all icon names
   features: [
     {
-      icon: "Zap",
-      title: "Lightning Fast",
+      icon: "Zap", // 👈 Change icon name from lucide.dev
+      title: "Lightning Fast", // 👈 Feature headline
       description: "Experience blazing-fast performance with our optimized infrastructure built for speed.",
     },
     {

@@ -1,14 +1,28 @@
+/**
+ * 🎨 TAILWIND CONFIGURATION
+ * 
+ * This file controls all colors, animations, and styling.
+ * 
+ * 🎯 QUICK CUSTOMIZATION:
+ * 1. Change primary/secondary/accent colors below
+ * 2. Adjust animations if needed
+ * 3. Add custom shadows or effects
+ * 
+ * 📚 Learn more: tailwindcss.com/docs/configuration
+ */
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
+  darkMode: 'class', // Enables dark mode with 'dark' class
   theme: {
     extend: {
+      // 🎨 BRAND COLORS - Change these to match your brand!
       colors: {
-        primary: {
+        primary: { // 💜 Purple - Main brand color
           DEFAULT: '#7C3AED',
           50: '#FAF5FF',
           100: '#F3E8FF',
