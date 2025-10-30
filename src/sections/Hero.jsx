@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Play, Sparkles, Zap, Shield, Rocket, TrendingUp, Users, Star } from 'lucide-react';
 import { MagneticButton } from '../components/MagneticButton';
 import { ParticleBackground } from '../components/ParticleBackground';
+import { AnimatedTitle } from '../components/AnimatedTitle';
 import { Container } from '../components/Container';
 import { GetStartedModal } from '../components/GetStartedModal';
 import { siteConfig } from '../config/site';
@@ -76,21 +77,43 @@ export const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Main Headline - HUGE */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight"
-            >
-              <span className="text-white drop-shadow-2xl">
-                {siteConfig.hero.title}
-              </span>
+            {/* Main Headline - STUNNING ANIMATED */}
+            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="text-white drop-shadow-2xl"
+              >
+                <AnimatedTitle>
+                  {siteConfig.hero.title}
+                </AnimatedTitle>
+              </motion.div>
               <br />
-              <span className="bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
-                {siteConfig.hero.highlightedTitle}
-              </span>
-            </motion.h1>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
+                className="relative inline-block"
+              >
+                <span className="relative z-10 bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
+                  {siteConfig.hero.highlightedTitle}
+                </span>
+                {/* Glow effect */}
+                <motion.span
+                  animate={{
+                    opacity: [0.4, 0.8, 0.4],
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                  className="absolute inset-0 bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 blur-2xl -z-10"
+                />
+              </motion.div>
+            </h1>
 
             {/* Subtitle - Enhanced */}
             <motion.p
