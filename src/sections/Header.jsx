@@ -44,10 +44,10 @@ export const Header = () => {
           {/* Logo */}
           <motion.a
             href="#"
-            className="text-2xl font-bold gradient-text"
+            className="text-3xl font-black bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
-            LaunchPad
+            TechVerz
           </motion.a>
 
           {/* Desktop Navigation */}

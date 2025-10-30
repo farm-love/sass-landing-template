@@ -12,10 +12,10 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="text-2xl font-bold gradient-text mb-4">
-              LaunchPad
+            <div className="text-3xl font-black bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent mb-4">
+              TechVerz
             </div>
-            <p className="text-slate-400 mb-6 max-w-xs">
+            <p className="text-slate-400 mb-6 max-w-xs text-lg">
               {siteConfig.footer.tagline}
             </p>
             
@@ -84,7 +84,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
           <p>
-            © {currentYear} LaunchPad. All rights reserved.
+            © {currentYear} TechVerz. All rights reserved. Built with passion & cutting-edge tech.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-primary-400 transition-colors">

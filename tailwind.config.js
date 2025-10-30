@@ -80,6 +80,7 @@ export default {
         'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
         'wiggle': 'wiggle 1s ease-in-out infinite',
         'tilt': 'tilt 10s infinite linear',
+        'glow': 'glow 2s ease-in-out infinite alternate',
       },
       keyframes: {
         float: {
@@ -102,6 +103,10 @@ export default {
           '0%, 50%, 100%': { transform: 'rotate(0deg)' },
           '25%': { transform: 'rotate(1deg)' },
           '75%': { transform: 'rotate(-1deg)' },
+        },
+        glow: {
+          '0%': { boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)' },
+          '100%': { boxShadow: '0 0 40px rgba(139, 92, 246, 0.8), 0 0 60px rgba(6, 182, 212, 0.6)' },
         },
       },
       boxShadow: {

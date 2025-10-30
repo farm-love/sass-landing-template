@@ -13,18 +13,18 @@
 
 export const siteConfig = {
   // 🏷️ BRAND INFORMATION
-  name: "LaunchPad", // 👈 Change this to your product name
-  description: "Transform your ideas into reality with the most powerful SaaS platform",
-  url: "https://yoursite.com", // 👈 Change to your domain
+  name: "TechVerz", // 👈 Your brand name
+  description: "Next-generation platform that transforms businesses through cutting-edge technology and innovation",
+  url: "https://techverz.com", // 👈 Your domain
   
   // 🦸 HERO SECTION (First thing visitors see!)
   hero: {
-    badge: "🚀 New Feature Launch",
-    title: "Transform Your Business with",
-    highlightedTitle: "LaunchPad SaaS",
-    subtitle: "The most powerful, beautiful, and easy-to-use platform for modern teams. Build faster, collaborate better, and scale effortlessly.",
-    primaryCTA: "Start Free Trial",
-    secondaryCTA: "View Demo",
+    badge: "✨ Powered by AI - Trusted by 50,000+ Teams",
+    title: "Build The Future with",
+    highlightedTitle: "TechVerz",
+    subtitle: "The ultimate all-in-one platform combining AI, automation, and analytics. Transform your business operations in days, not months. Experience the next generation of enterprise software.",
+    primaryCTA: "Get Started Free →",
+    secondaryCTA: "Watch Demo",
   },
 
   // ✨ FEATURES SECTION (Bento Grid Layout)
