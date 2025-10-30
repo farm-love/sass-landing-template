@@ -77,7 +77,12 @@ export const Hero = () => {
             </motion.div>
 
             {/* Main Headline - HUGE */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight"
+            >
               <span className="text-white drop-shadow-2xl">
                 {siteConfig.hero.title}
               </span>
@@ -85,15 +90,25 @@ export const Hero = () => {
               <span className="bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
                 {siteConfig.hero.highlightedTitle}
               </span>
-            </h1>
+            </motion.h1>
 
             {/* Subtitle - Enhanced */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed font-medium"
+            >
               {siteConfig.hero.subtitle}
-            </p>
+            </motion.p>
 
             {/* CTA Buttons - Magnetic Effect */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
+            >
               <MagneticButton onClick={() => setShowGetStarted(true)}>
                 {siteConfig.hero.primaryCTA}
                 <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
@@ -107,10 +122,15 @@ export const Hero = () => {
                 <Play size={24} />
                 {siteConfig.hero.secondaryCTA}
               </motion.button>
-            </div>
+            </motion.div>
 
             {/* Enhanced Social Proof */}
-            <div className="flex flex-wrap items-center justify-center gap-12 text-slate-300">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="flex flex-wrap items-center justify-center gap-12 text-slate-300"
+            >
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-3">
                   {[1, 2, 3, 4, 5].map((i) => (
@@ -145,7 +165,7 @@ export const Hero = () => {
                   <p className="text-sm text-slate-400">Growth Rate</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* 3D Dashboard Mockup */}

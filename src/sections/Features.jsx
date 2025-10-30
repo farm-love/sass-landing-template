@@ -11,11 +11,17 @@ const FeatureCard = ({ feature, index }) => {
   const isLarge = index === 0 || index === 3;
 
   return (
-    <TiltCard
-      className={`group relative bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-3xl p-8 overflow-hidden transition-all duration-300 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/20 ${
-        isLarge ? 'md:col-span-2 md:row-span-2' : ''
-      }`}
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
     >
+      <TiltCard
+        className={`group relative bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-3xl p-8 overflow-hidden transition-all duration-300 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/20 ${
+          isLarge ? 'md:col-span-2 md:row-span-2' : ''
+        }`}
+      >
       {/* Animated Gradient Background */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-secondary-500/10 to-accent-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -50,7 +56,7 @@ const FeatureCard = ({ feature, index }) => {
           transition={{ duration: 0.8 }}
           style={{ transformStyle: 'preserve-3d' }}
           className={`inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 via-secondary-500 to-accent-500 text-white shadow-2xl shadow-primary-500/40 mb-6 ${
-            isLarge ? 'w-24 h-24' : 'w-18 h-18 p-4'
+            isLarge ? 'w-24 h-24' : 'w-16 h-16'
           }`}
         >
           <Icon size={isLarge ? 40 : 32} strokeWidth={2.5} />
@@ -78,7 +84,8 @@ const FeatureCard = ({ feature, index }) => {
           Explore →
         </motion.div>
       </div>
-    </TiltCard>
+      </TiltCard>
+    </motion.div>
   );
 };
 
