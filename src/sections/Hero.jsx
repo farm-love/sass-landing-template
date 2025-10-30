@@ -62,23 +62,23 @@ export const Hero = () => {
         />
       </div>
 
-      <Container className="relative z-10 pt-32 pb-20">
+      <Container className="relative z-10 pt-24 md:pt-32 pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             {/* Floating Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-8 inline-block"
+              className="mb-6 md:mb-8 inline-block"
             >
-              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary-500/20 via-secondary-500/20 to-accent-500/20 backdrop-blur-xl border border-white/20 text-white font-semibold text-sm shadow-2xl">
-                <Sparkles size={18} className="animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-primary-500/20 via-secondary-500/20 to-accent-500/20 backdrop-blur-xl border border-white/20 text-white font-semibold text-xs md:text-sm shadow-2xl">
+                <Sparkles size={16} className="animate-pulse" />
                 {siteConfig.hero.badge}
               </div>
             </motion.div>
 
             {/* Main Headline - STUNNING ANIMATED */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-tight px-4">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -120,7 +120,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed font-medium"
+              className="text-lg md:text-xl lg:text-2xl text-slate-300 mb-10 md:mb-12 max-w-4xl mx-auto leading-relaxed font-medium px-4"
             >
               {siteConfig.hero.subtitle}
             </motion.p>
@@ -130,19 +130,19 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-12 md:mb-16 px-4"
             >
               <MagneticButton onClick={() => setShowGetStarted(true)}>
                 {siteConfig.hero.primaryCTA}
-                <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </MagneticButton>
               
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold rounded-xl border-2 border-white/30 text-white backdrop-blur-xl hover:bg-white/10 transition-all shadow-xl"
+                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-bold rounded-xl border-2 border-white/30 text-white backdrop-blur-xl hover:bg-white/10 transition-all shadow-xl"
               >
-                <Play size={24} />
+                <Play size={20} />
                 {siteConfig.hero.secondaryCTA}
               </motion.button>
             </motion.div>
@@ -152,40 +152,40 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="flex flex-wrap items-center justify-center gap-12 text-slate-300"
+              className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-slate-300 px-4"
             >
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-3">
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="flex -space-x-2 md:-space-x-3">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <div
                       key={i}
-                      className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-secondary-400 border-2 border-slate-950 shadow-xl"
+                      className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-primary-400 to-secondary-400 border-2 border-slate-950 shadow-xl"
                     />
                   ))}
                 </div>
                 <div className="text-left">
-                  <p className="text-white font-bold text-lg">50,000+</p>
-                  <p className="text-sm text-slate-400">Active Users</p>
+                  <p className="text-white font-bold text-base md:text-lg">50,000+</p>
+                  <p className="text-xs md:text-sm text-slate-400">Active Users</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3">
-                <div className="flex gap-1">
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="flex gap-0.5 md:gap-1">
                   {[1,2,3,4,5].map((i) => (
-                    <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
                 <div className="text-left">
-                  <p className="text-white font-bold text-lg">4.9/5</p>
-                  <p className="text-sm text-slate-400">Rating</p>
+                  <p className="text-white font-bold text-base md:text-lg">4.9/5</p>
+                  <p className="text-xs md:text-sm text-slate-400">Rating</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <TrendingUp className="w-8 h-8 text-green-400" />
+              <div className="flex items-center gap-2 md:gap-3">
+                <TrendingUp className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-green-400" />
                 <div className="text-left">
-                  <p className="text-white font-bold text-lg">300%</p>
-                  <p className="text-sm text-slate-400">Growth Rate</p>
+                  <p className="text-white font-bold text-base md:text-lg">300%</p>
+                  <p className="text-xs md:text-sm text-slate-400">Growth Rate</p>
                 </div>
               </div>
             </motion.div>
@@ -196,24 +196,24 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="relative max-w-6xl mx-auto"
+            className="relative max-w-6xl mx-auto px-4"
           >
             {/* Glowing background */}
             <div className="absolute inset-0 bg-gradient-to-t from-primary-500/30 to-transparent blur-3xl -z-10" />
             
             {/* Main dashboard */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-2xl rounded-2xl md:rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
                 {/* Window controls */}
-                <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                <div className="flex items-center gap-1.5 md:gap-2 px-4 md:px-6 py-3 md:py-4 border-b border-white/10">
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500"></div>
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500"></div>
                 </div>
 
                 {/* Dashboard content */}
-                <div className="p-8">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="p-4 md:p-6 lg:p-8">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
                     {[
                       { icon: Users, label: 'Users', value: '45.2K', color: 'from-blue-400 to-cyan-400' },
                       { icon: TrendingUp, label: 'Revenue', value: '$128K', color: 'from-green-400 to-emerald-400' },
@@ -223,24 +223,24 @@ export const Hero = () => {
                       <motion.div
                         key={index}
                         whileHover={{ scale: 1.05, rotateY: 5 }}
-                        className={`bg-gradient-to-br ${item.color} rounded-2xl p-6 text-white shadow-xl`}
+                        className={`bg-gradient-to-br ${item.color} rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-6 text-white shadow-xl`}
                       >
-                        <item.icon className="w-8 h-8 mb-3" />
-                        <p className="text-3xl font-bold mb-1">{item.value}</p>
-                        <p className="text-sm opacity-90">{item.label}</p>
+                        <item.icon className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 mb-2 md:mb-3" />
+                        <p className="text-xl md:text-2xl lg:text-3xl font-bold mb-0.5 md:mb-1">{item.value}</p>
+                        <p className="text-xs md:text-sm opacity-90">{item.label}</p>
                       </motion.div>
                     ))}
                   </div>
 
                   {/* Chart placeholder */}
-                  <div className="bg-gradient-to-br from-slate-700/50 to-slate-800/50 rounded-2xl p-8 h-64 flex items-end gap-2">
+                  <div className="bg-gradient-to-br from-slate-700/50 to-slate-800/50 rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 h-40 md:h-52 lg:h-64 flex items-end gap-1 md:gap-2">
                     {[40, 70, 45, 80, 60, 95, 75, 85, 65, 90, 70, 100].map((height, i) => (
                       <motion.div
                         key={i}
                         initial={{ height: 0 }}
                         animate={{ height: `${height}%` }}
                         transition={{ delay: i * 0.1, duration: 0.5 }}
-                        className="flex-1 bg-gradient-to-t from-primary-500 to-secondary-500 rounded-lg"
+                        className="flex-1 bg-gradient-to-t from-primary-500 to-secondary-500 rounded-md md:rounded-lg"
                       />
                     ))}
                   </div>
@@ -251,17 +251,17 @@ export const Hero = () => {
               <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-8 -right-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl p-6 shadow-2xl backdrop-blur-xl hidden lg:block"
+                className="absolute -top-4 -right-4 md:-top-6 md:-right-6 lg:-top-8 lg:-right-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-2xl backdrop-blur-xl hidden md:block"
               >
-                <Rocket className="w-12 h-12 text-white" />
+                <Rocket className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white" />
               </motion.div>
 
               <motion.div
                 animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute -bottom-8 -left-8 bg-gradient-to-br from-accent-500 to-pink-500 rounded-2xl p-6 shadow-2xl backdrop-blur-xl hidden lg:block"
+                className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 lg:-bottom-8 lg:-left-8 bg-gradient-to-br from-accent-500 to-pink-500 rounded-xl md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-2xl backdrop-blur-xl hidden md:block"
               >
-                <Zap className="w-12 h-12 text-white" />
+                <Zap className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white" />
               </motion.div>
             </div>
           </motion.div>

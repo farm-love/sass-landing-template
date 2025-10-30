@@ -1,16 +1,28 @@
 MIT License
 
-Copyright (c) 2025 LaunchPad Template
+Copyright (c) 2025 TechVerz
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
+Permission is hereby granted, free of charge, to any person purchasing or obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+to use, copy, modify, merge, publish, and distribute the Software for personal
+and commercial projects, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
+
+RESTRICTIONS:
+1. The Software may NOT be resold, redistributed, or sublicensed as a template or
+   competing product.
+2. The Software may NOT be used in template marketplaces or competing businesses.
+3. You may NOT claim authorship of the original template design.
+
+PERMITTED USES:
+✓ Use for unlimited personal projects
+✓ Use for unlimited client projects
+✓ Modify and customize as needed
+✓ Create derivative works for end-use products
+✓ Use in commercial applications
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -19,37 +31,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-## Commercial License
-
-This template can be used for both personal and commercial projects.
-
-### ✅ You CAN:
-- Use in personal projects
-- Use in commercial projects
-- Modify and customize
-- Remove credits/attributions
-- Sell websites built with this template
-
-### ❌ You CANNOT:
-- Resell this template as a template
-- Redistribute the source files
-- Claim the template as your own creation
-- Create derivative templates for resale
-
----
-
-## Attribution (Optional)
-
-While not required, we appreciate attribution:
-
-"Built with LaunchPad Template"
-
-A link back to the original template is appreciated but not mandatory.
-
----
-
-For questions about licensing, contact: license@example.com
-

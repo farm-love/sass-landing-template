@@ -5,6 +5,7 @@ export const Button = ({
   variant = 'primary', 
   size = 'md', 
   className = '', 
+  onClick,
   ...props 
 }) => {
   const baseStyles = 'font-semibold rounded-lg transition-all duration-300 inline-flex items-center justify-center gap-2 relative overflow-hidden group';
@@ -24,8 +25,10 @@ export const Button = ({
 
   return (
     <motion.button
+      type="button"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
+      onClick={onClick}
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     >
@@ -35,6 +38,7 @@ export const Button = ({
         initial={{ x: '-100%' }}
         whileHover={{ x: '100%' }}
         transition={{ duration: 0.5 }}
+        style={{ pointerEvents: 'none' }}
       />
     </motion.button>
   );

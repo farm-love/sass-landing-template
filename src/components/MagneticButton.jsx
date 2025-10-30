@@ -30,6 +30,7 @@ export const MagneticButton = ({ children, className = '', ...props }) => {
   return (
     <motion.button
       ref={buttonRef}
+      type="button"
       animate={{ x: position.x, y: position.y }}
       transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
       onMouseMove={handleMouseMove}

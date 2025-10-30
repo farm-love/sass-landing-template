@@ -1,25 +1,20 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
 import { useEffect } from 'react';
+import { X } from 'lucide-react';
+import { createPortal } from 'react-dom';
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
   useEffect(() => {
     if (isOpen) {
-      // Prevent background scroll
       document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = 'var(--scrollbar-width, 0px)';
     } else {
       document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
     }
     
     return () => {
       document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
     };
   }, [isOpen]);
 
-  // Close on Escape key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && isOpen) {
@@ -27,59 +22,123 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
       }
     };
     
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
   }, [isOpen, onClose]);
 
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
-          />
+  if (!isOpen) return null;
 
-          {/* Modal Container - Fixed positioning with overflow */}
-          <div className="fixed inset-0 z-50 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                transition={{ type: 'spring', duration: 0.5 }}
-                className="relative w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden my-8"
-                onClick={(e) => e.stopPropagation()}
-              >
-              {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-700">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  {title}
-                </h3>
-                <motion.button
-                  whileHover={{ scale: 1.1, rotate: 90 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={onClose}
-                  className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition-colors"
-                >
-                  <X size={24} />
-                </motion.button>
-              </div>
+  const modalContent = (
+    <>
+      {/* Backdrop */}
+      <div 
+        onClick={onClose}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          backdropFilter: 'blur(4px)',
+          zIndex: 999999,
+        }}
+      />
 
-              {/* Content */}
-              <div className="p-6 max-h-[calc(100vh-200px)] overflow-y-auto">
-                {children}
-              </div>
-            </motion.div>
-            </div>
+      {/* Modal Container */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 9999999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '1rem',
+          overflowY: 'auto',
+          pointerEvents: 'none',
+        }}
+      >
+        {/* Modal Content */}
+        <div
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            backgroundColor: 'white',
+            borderRadius: '1rem',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+            width: '100%',
+            maxWidth: '28rem',
+            maxHeight: '90vh',
+            display: 'flex',
+            flexDirection: 'column',
+            margin: 'auto',
+            position: 'relative',
+            pointerEvents: 'auto',
+          }}
+          className="dark:bg-slate-800"
+        >
+          {/* Header */}
+          <div 
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '1.5rem',
+              borderBottom: '1px solid',
+              flexShrink: 0,
+            }}
+            className="border-slate-200 dark:border-slate-700"
+          >
+            <h3 
+              style={{
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                margin: 0,
+              }}
+              className="text-slate-900 dark:text-white"
+            >
+              {title}
+            </h3>
+            <button
+              onClick={onClose}
+              type="button"
+              style={{
+                padding: '0.5rem',
+                borderRadius: '0.5rem',
+                border: 'none',
+                background: 'transparent',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+              }}
+              className="hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400"
+            >
+              <X size={24} />
+            </button>
           </div>
-        </>
-      )}
-    </AnimatePresence>
-  );
-};
 
+          {/* Content */}
+          <div 
+            style={{
+              padding: '1.5rem',
+              overflowY: 'auto',
+              flex: 1,
+            }}
+          >
+            {children}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+
+  // Render modal at the root of the body to escape stacking contexts
+  return createPortal(modalContent, document.body);
+};

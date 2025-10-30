@@ -1,404 +1,412 @@
 # 🎨 Customization Guide
 
-This guide will help you customize the LaunchPad template to match your brand and requirements.
+This guide will help you customize the template to match your brand and requirements.
 
-## 📋 Table of Contents
+## 📝 Content Customization
 
-1. [Changing Colors](#changing-colors)
-2. [Updating Content](#updating-content)
-3. [Customizing Components](#customizing-components)
-4. [Adding/Removing Sections](#addingremoving-sections)
-5. [Modifying Animations](#modifying-animations)
-6. [Changing Fonts](#changing-fonts)
-7. [Adding Images](#adding-images)
+### 1. Site Configuration
 
----
-
-## 🎨 Changing Colors
-
-### Primary Colors
-
-All colors are defined in `tailwind.config.js`. To change the primary color scheme:
-
-```javascript
-// tailwind.config.js
-colors: {
-  primary: {
-    DEFAULT: '#8B5CF6',  // Change this to your brand color
-    500: '#8B5CF6',
-    600: '#7C3AED',
-    // ... other shades
-  },
-  secondary: {
-    DEFAULT: '#06B6D4',  // Change secondary color
-    // ...
-  },
-  accent: {
-    DEFAULT: '#EC4899',  // Change accent color
-    // ...
-  },
-}
-```
-
-### Quick Color Customization
-
-For a quick brand makeover, just change these three values:
-- **Primary**: Main brand color (buttons, links)
-- **Secondary**: Supporting color (gradients, accents)
-- **Accent**: Highlight color (special elements)
-
-### Gradient Backgrounds
-
-Modify gradient backgrounds in `tailwind.config.js`:
-
-```javascript
-backgroundImage: {
-  'gradient-primary': 'linear-gradient(135deg, #YOUR_COLOR1 0%, #YOUR_COLOR2 50%, #YOUR_COLOR3 100%)',
-}
-```
-
----
-
-## 📝 Updating Content
-
-All content is centralized in one file for easy editing:
-
-### Site Configuration
-
-Edit `src/config/site.js`:
+All main content is centralized in `src/config/site.js`. Edit this file to update:
 
 ```javascript
 export const siteConfig = {
-  name: "Your Product Name",        // Change product name
-  description: "Your description",  // Update description
-  
   hero: {
-    badge: "🎉 Your Badge Text",
-    title: "Your Main Headline",
-    highlightedTitle: "Highlighted Part",
-    subtitle: "Your compelling subtitle...",
+    badge: "✨ Powered by AI - Trusted by 50,000+ Teams",
+    title: "Build The Future with",
+    highlightedTitle: "TechVerz",
+    subtitle: "The ultimate all-in-one platform combining AI, automation, and analytics...",
     primaryCTA: "Get Started Free",
-    secondaryCTA: "Watch Demo",
+    secondaryCTA: "Watch Demo"
   },
   
-  // ... more configuration
+  features: [
+    {
+      icon: "Zap",
+      title: "Your Feature Title",
+      description: "Your feature description..."
+    },
+    // Add more features...
+  ],
+  
+  pricing: {
+    // Your pricing plans...
+  },
+  
+  testimonials: [
+    // Your customer testimonials...
+  ],
+  
+  faq: [
+    // Your FAQ items...
+  ]
+};
+```
+
+### 2. Update Logo & Branding
+
+**Header Logo** (`src/sections/Header.jsx`):
+```jsx
+<motion.a
+  href="#"
+  className="text-3xl font-black bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent"
+>
+  YourBrand  {/* Change this */}
+</motion.a>
+```
+
+**Footer** (`src/sections/Footer.jsx`):
+- Update company name
+- Update social media links
+- Update footer links
+
+### 3. Meta Tags & SEO
+
+Edit `index.html`:
+
+```html
+<title>Your SaaS Product Name</title>
+<meta name="description" content="Your description here" />
+<meta property="og:title" content="Your SaaS Product" />
+<meta property="og:description" content="Your description" />
+```
+
+## 🎨 Design Customization
+
+### 1. Color Scheme
+
+Edit `tailwind.config.js`:
+
+```javascript
+colors: {
+  // Change these to your brand colors
+  primary: colors.purple,    // Main brand color
+  secondary: colors.pink,    // Secondary color
+  accent: colors.cyan,       // Accent color
 }
 ```
 
-### Features Section
+**Available Color Options:**
+- `colors.blue`
+- `colors.green`
+- `colors.purple`
+- `colors.pink`
+- `colors.orange`
+- `colors.red`
+- `colors.teal`
+- `colors.cyan`
 
-Update features in `src/config/site.js`:
+### 2. Typography
 
-```javascript
-features: [
-  {
-    icon: "Zap",              // Icon name from Lucide React
-    title: "Your Feature",
-    description: "Feature description...",
-  },
-  // Add more features
-],
+**Change Fonts** (edit `index.css`):
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Your+Font:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  font-family: 'Your Font', sans-serif;
+}
 ```
 
-**Available Icons**: Browse all icons at [lucide.dev](https://lucide.dev)
+**Font Sizes** (in Tailwind classes):
+- Headlines: `text-6xl` to `text-9xl`
+- Body: `text-base` to `text-2xl`
+- Small text: `text-sm` to `text-xs`
 
-### Pricing Plans
+### 3. Spacing & Layout
 
-Customize pricing in `src/config/site.js`:
-
-```javascript
-pricing: [
-  {
-    name: "Plan Name",
-    price: { monthly: 29, yearly: 290 },
-    description: "Plan description",
-    features: [
-      "Feature 1",
-      "Feature 2",
-      // ...
-    ],
-    popular: false,  // Set true to highlight
-  },
-],
+**Container Width** (`src/components/Container.jsx`):
+```jsx
+className={`mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl ${className}`}
+// Change max-w-7xl to: max-w-6xl, max-w-5xl, etc.
 ```
 
-### Testimonials
-
-Add your testimonials:
-
-```javascript
-testimonials: [
-  {
-    name: "Customer Name",
-    role: "Job Title at Company",
-    image: "https://your-image-url.com/avatar.jpg",
-    content: "Their testimonial...",
-    rating: 5,
-  },
-],
+**Section Padding**:
+```jsx
+className="py-24 md:py-40"  // Vertical padding
+// Adjust py-24 and py-40 to your preference
 ```
 
-**Tip**: Use [DiceBear](https://dicebear.com/) for free avatar placeholders.
+## 🔧 Component Customization
 
-### FAQ Items
+### 1. Modify Hero Section
 
-Update FAQs:
+**Change Dashboard Mockup** (`src/sections/Hero.jsx`):
+- Update stats cards (lines 217-232)
+- Modify chart data (line 237)
+- Change floating icons (lines 251-265)
 
-```javascript
-faqs: [
-  {
-    question: "Your question?",
-    answer: "Your detailed answer...",
-  },
-],
+**Remove Particle Background**:
+```jsx
+// Comment out or remove this line:
+<ParticleBackground />
 ```
 
----
+### 2. Customize Features Section
 
-## 🔧 Customizing Components
+**Change Grid Layout** (`src/sections/Features.jsx`):
+```jsx
+// Current: 1 column mobile, 2 tablet, 3 desktop
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-### Button Variants
-
-Modify button styles in `src/components/Button.jsx`:
-
-```javascript
-const variants = {
-  primary: 'your-custom-classes',
-  secondary: 'your-custom-classes',
-  // Add new variants
-};
+// Option: 2 columns everywhere
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 ```
 
-### Card Styles
-
-Customize cards in `src/components/Card.jsx`:
-
+**Add More Features**:
+Edit `src/config/site.js` and add to the features array:
 ```javascript
-// Change default styling
-const gradientStyles = gradient 
-  ? 'your-glass-effect-classes' 
-  : 'your-card-classes';
+{
+  icon: "IconName",  // From lucide-react
+  title: "Feature Title",
+  description: "Feature description..."
+}
 ```
 
----
+### 3. Pricing Plans
 
-## ➕ Adding/Removing Sections
-
-### Removing a Section
-
-In `src/App.jsx`, simply comment out or delete:
-
+Edit `src/config/site.js`:
 ```javascript
-<main>
-  <Hero />
-  <Features />
-  {/* <Stats /> */}  {/* Section removed */}
-  <Pricing />
-  // ...
-</main>
+pricing: {
+  plans: [
+    {
+      name: "Starter",
+      price: "29",
+      description: "Perfect for getting started",
+      features: [
+        "Feature 1",
+        "Feature 2",
+        // Add more features...
+      ],
+      highlighted: false
+    },
+    // Add more plans...
+  ]
+}
 ```
 
-### Adding a New Section
+### 4. Modals
 
-1. **Create the section file**: `src/sections/YourSection.jsx`
+**Sign In Modal** (`src/components/SignInModal.jsx`):
+- Connect to your authentication API
+- Update form fields
+- Modify social login providers
 
-```javascript
-import { Container } from '../components/Container';
-import { SectionTitle } from '../components/SectionTitle';
+**Get Started Modal** (`src/components/GetStartedModal.jsx`):
+- Update form fields
+- Connect to your backend/CRM
+- Modify plan selection
 
-export const YourSection = () => {
-  return (
-    <section className="py-20 bg-white dark:bg-slate-900">
-      <Container>
-        <SectionTitle
-          badge="✨ Badge"
-          title="Your Title"
-          subtitle="Your subtitle"
-        />
-        {/* Your content */}
-      </Container>
-    </section>
-  );
-};
+## 🖼️ Images & Assets
+
+### 1. Add Your Logo
+
+Replace `public/vite.svg` with your logo:
+1. Add your logo file to `public/` folder
+2. Update `index.html`:
+```html
+<link rel="icon" type="image/png" href="/your-logo.png" />
 ```
 
-2. **Import and add to App.jsx**:
+### 2. Add Background Images
 
-```javascript
-import { YourSection } from './sections/YourSection';
-
-// In the component:
-<main>
-  {/* ... other sections */}
-  <YourSection />
-</main>
+**Hero Background**:
+```jsx
+<div className="absolute inset-0">
+  <img 
+    src="/your-background.jpg" 
+    alt="Background" 
+    className="w-full h-full object-cover opacity-30"
+  />
+</div>
 ```
 
-### Reordering Sections
+### 3. Add Team/Product Images
 
-Simply rearrange the order in `src/App.jsx`:
+Create an `assets` folder and import:
+```jsx
+import productImage from './assets/product.png';
 
-```javascript
-<main>
-  <Hero />
-  <Pricing />      {/* Moved up */}
-  <Features />     {/* Moved down */}
-  // ...
-</main>
+<img src={productImage} alt="Product" />
 ```
 
----
+## 🎭 Animations
 
-## 🎭 Modifying Animations
+### 1. Disable Animations
 
-### Animation Speed
+If you want simpler animations or better performance:
 
-Adjust animation durations in section files:
-
-```javascript
-// In any section component
+**Remove Motion Components**:
+```jsx
+// Change this:
 <motion.div
-  transition={{ duration: 0.6 }}  // Change from 0.6 to your preference
->
-```
-
-### Disable Animations
-
-To disable animations globally, replace `motion` components with regular `div`:
-
-```javascript
-// Before
-<motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
 >
 
-// After
+// To this:
 <div>
 ```
 
-### Custom Animations
+### 2. Adjust Animation Speed
 
-Add custom animations in `tailwind.config.js`:
-
-```javascript
-animation: {
-  'your-animation': 'your-animation 3s ease-in-out infinite',
-},
-keyframes: {
-  'your-animation': {
-    '0%, 100%': { transform: 'translateY(0)' },
-    '50%': { transform: 'translateY(-20px)' },
-  },
-}
+**Framer Motion durations**:
+```jsx
+transition={{ duration: 0.5 }}  // Faster
+transition={{ duration: 1.5 }}  // Slower
 ```
 
----
+### 3. Custom Animations
 
-## 🔤 Changing Fonts
+Add your own animations:
+```jsx
+<motion.div
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ type: "spring", stiffness: 100 }}
+>
+```
 
-### Google Fonts
+## 🌓 Dark Mode
 
-1. **Add to `index.html`**:
+### 1. Change Default Theme
 
+Edit `src/context/ThemeContext.jsx`:
+```jsx
+const [theme, setTheme] = useState('dark');  // 'light' or 'dark'
+```
+
+### 2. Disable Dark Mode
+
+Remove the theme toggle button from `Header.jsx` and set theme to 'light'.
+
+### 3. Custom Dark Mode Colors
+
+In your components, use Tailwind dark mode:
+```jsx
+className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white"
+```
+
+## 📱 Mobile Optimization
+
+### 1. Hide Elements on Mobile
+
+```jsx
+className="hidden md:block"     // Hide on mobile, show on desktop
+className="md:hidden"           // Show on mobile, hide on desktop
+```
+
+### 2. Responsive Text
+
+```jsx
+className="text-2xl md:text-4xl lg:text-6xl"  // Scales with screen size
+```
+
+### 3. Mobile Menu
+
+Customize in `src/sections/Header.jsx`:
+- Change menu items
+- Update styles
+- Modify animation
+
+## 🔗 Navigation
+
+### 1. Add New Sections
+
+1. Create section component in `src/sections/`
+2. Import in `App.jsx`
+3. Add to navigation array in `Header.jsx`:
+
+```jsx
+const navItems = [
+  { name: 'Features', href: '#features' },
+  { name: 'Your Section', href: '#your-section' },  // Add this
+];
+```
+
+### 2. External Links
+
+Change navigation to external links:
+```jsx
+<a href="https://yoursite.com/page" target="_blank" rel="noopener">
+  Link Text
+</a>
+```
+
+## 🎯 Call-to-Action Buttons
+
+### 1. Update CTAs
+
+In any component:
+```jsx
+<Button 
+  variant="primary"  // or "ghost", "outline", "secondary"
+  size="lg"         // or "md", "sm"
+  onClick={yourFunction}
+>
+  Your Button Text
+</Button>
+```
+
+### 2. Connect Forms
+
+Update modal submit handlers:
+```jsx
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  // Your API call here
+  await fetch('your-api-endpoint', {
+    method: 'POST',
+    body: JSON.stringify(formData)
+  });
+  
+  toast.success('Success!');
+  onClose();
+};
+```
+
+## 📊 Analytics Integration
+
+### Add Google Analytics
+
+In `index.html`:
 ```html
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Your+Font:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
 ```
 
-2. **Update `tailwind.config.js`**:
+## 🎨 Advanced Customization
 
+### 1. Add New Components
+
+1. Create file in `src/components/YourComponent.jsx`
+2. Export the component
+3. Import and use in your sections
+
+### 2. Custom Hooks
+
+Create in `src/hooks/useYourHook.js`:
 ```javascript
-theme: {
-  extend: {
-    fontFamily: {
-      sans: ['Your Font', 'system-ui', 'sans-serif'],
-    },
-  },
-}
+export const useYourHook = () => {
+  // Your custom hook logic
+  return { /* your values */ };
+};
 ```
 
-### Custom Fonts
+### 3. Add Pages
 
-1. Add font files to `public/fonts/`
-2. Import in `src/index.css`:
-
-```css
-@font-face {
-  font-family: 'Your Font';
-  src: url('/fonts/your-font.woff2') format('woff2');
-}
+For multi-page sites, install React Router:
+```bash
+npm install react-router-dom
 ```
+
+Then set up routing in `App.jsx`.
 
 ---
 
-## 🖼️ Adding Images
-
-### Product Screenshots
-
-1. Add images to `public/images/`
-2. Reference in your components:
-
-```javascript
-<img src="/images/your-screenshot.png" alt="Description" />
-```
-
-### Optimizing Images
-
-Before adding images:
-- Use WebP format when possible
-- Compress images (use [TinyPNG](https://tinypng.com/))
-- Recommended max size: 1920px width
-- Use lazy loading for below-fold images
-
-### Background Images
-
-Add to `src/index.css` or inline styles:
-
-```css
-.hero-bg {
-  background-image: url('/images/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
-}
-```
-
----
-
-## 🎯 Quick Customization Checklist
-
-- [ ] Update brand colors in `tailwind.config.js`
-- [ ] Change all content in `src/config/site.js`
-- [ ] Replace logo text in `Header.jsx`
-- [ ] Update meta tags in `index.html`
-- [ ] Add your product images
-- [ ] Customize CTA button text
-- [ ] Update social media links in footer
-- [ ] Add your contact email
-- [ ] Test in light and dark mode
-- [ ] Test on mobile devices
-
----
-
-## 💡 Pro Tips
-
-1. **Start with content**: Update `src/config/site.js` first
-2. **Colors second**: Match your brand in `tailwind.config.js`
-3. **Test frequently**: Run `npm run dev` and check changes live
-4. **Mobile first**: Always test responsive design
-5. **Dark mode**: Test both themes thoroughly
-6. **Performance**: Keep animations smooth, optimize images
-
----
-
-## 🆘 Need Help?
-
-- The template uses standard React patterns
-- Tailwind CSS docs: [tailwindcss.com](https://tailwindcss.com)
-- Framer Motion docs: [framer.com/motion](https://www.framer.com/motion/)
-- Lucide icons: [lucide.dev](https://lucide.dev)
-
-Happy customizing! 🎨
-
+Need more help? Check the React, Tailwind CSS, and Framer Motion documentation.

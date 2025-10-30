@@ -1,14 +1,25 @@
 {
   "name": "saas-landing-template",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Premium SaaS Landing Page Template - Modern, responsive, and fully customizable",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
+  "keywords": [
+    "saas",
+    "landing-page",
+    "react",
+    "tailwind",
+    "template",
+    "modern",
+    "responsive"
+  ],
+  "author": "TechVerz",
+  "license": "MIT",
   "dependencies": {
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.548.0",

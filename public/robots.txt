@@ -1,0 +1,15 @@
+# robots.txt for TechVerz SaaS Landing Page
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://techverz.com/sitemap.xml
+
+# Crawl delay (optional, helps prevent server overload)
+Crawl-delay: 1
+
+# Disallow admin or private areas (customize as needed)
+# Disallow: /admin/
+# Disallow: /private/
+

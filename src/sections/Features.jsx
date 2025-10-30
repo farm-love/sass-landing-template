@@ -8,7 +8,6 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const FeatureCard = ({ feature, index }) => {
   const Icon = Icons[feature.icon];
-  const isLarge = index === 0 || index === 3;
 
   return (
     <motion.div
@@ -16,11 +15,10 @@ const FeatureCard = ({ feature, index }) => {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
+      className="h-full"
     >
       <TiltCard
-        className={`group relative bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-3xl p-8 overflow-hidden transition-all duration-300 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/20 ${
-          isLarge ? 'md:col-span-2 md:row-span-2' : ''
-        }`}
+        className="group relative bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-3xl p-8 overflow-hidden transition-all duration-300 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/20 h-full flex flex-col"
       >
       {/* Animated Gradient Background */}
       <motion.div
@@ -49,29 +47,23 @@ const FeatureCard = ({ feature, index }) => {
         className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full blur-3xl"
       />
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col h-full">
         {/* Icon with 3D Effect */}
         <motion.div
           whileHover={{ rotateY: 360, scale: 1.1 }}
           transition={{ duration: 0.8 }}
           style={{ transformStyle: 'preserve-3d' }}
-          className={`inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 via-secondary-500 to-accent-500 text-white shadow-2xl shadow-primary-500/40 mb-6 ${
-            isLarge ? 'w-24 h-24' : 'w-16 h-16'
-          }`}
+          className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 via-secondary-500 to-accent-500 text-white shadow-2xl shadow-primary-500/40 mb-6 w-20 h-20"
         >
-          <Icon size={isLarge ? 40 : 32} strokeWidth={2.5} />
+          <Icon size={36} strokeWidth={2.5} />
         </motion.div>
 
         {/* Content */}
-        <h3 className={`font-black mb-4 bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent ${
-          isLarge ? 'text-4xl' : 'text-2xl'
-        }`}>
+        <h3 className="font-black text-2xl mb-4 bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
           {feature.title}
         </h3>
         
-        <p className={`text-slate-600 dark:text-slate-300 leading-relaxed font-medium ${
-          isLarge ? 'text-xl' : 'text-base'
-        }`}>
+        <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-medium text-base flex-grow">
           {feature.description}
         </p>
 
@@ -115,7 +107,7 @@ export const Features = () => {
         </motion.div>
 
         {/* Bento Grid Layout */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-fr mb-20">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {siteConfig.features.map((feature, index) => (
             <FeatureCard key={index} feature={feature} index={index} />
           ))}
